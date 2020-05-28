@@ -1,0 +1,317 @@
+* {
+	box-sizing: border-box;
+	font-family: Calibri;
+	margin: 0;
+}
+
+body {
+	background-image: url('../img/background.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+/*------------------------------------------- NAVIGATION BAR --------------------------------------------*/
+.navigation_bar {
+	overflow: hidden;
+	background: linear-gradient(to right, #99ff66, #3399ff, #ff7733);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+}
+
+.navigation_bar a {
+	display: flex;
+	float: left;
+	text-decoration: none;
+	text-align: center;
+	padding: 16px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.navigation_bar a:hover {
+	background-color: grey;
+	border: 1px solid black;
+	padding: 15px;
+	color: white;
+	animation: glow .8s infinite alternate;
+}
+
+a:link, a:visited {
+	color: black;
+}
+
+
+/*------------------------------------------- GRID CONTAINER (GENERAL) --------------------------------------------*/
+
+.grid_container {
+	display: grid;
+	grid-template-columns: minmax(0,1fr);
+	grid-gap: 15px;
+	max-width: 100%;
+	margin: auto;
+	color: white;
+	padding: 14px;
+}
+
+h1, h3  {
+	color: white;
+	text-align: center;
+}
+
+h1 {
+	text-align: center;
+	text-decoration: underline;
+	font-style: italic;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-size: 40px;
+	animation: glow .9s infinite alternate;
+	
+}
+
+h3 {
+	text-align: center;
+	font-size: 20px;
+	margin: 20px 10px 0 10px;
+}
+
+
+/*------------------------------------------- 1. SEARCH BAR --------------------------------------------*/
+
+#search_bar {
+	grid-row-start: 2;
+	grid-row-end: 3;
+	width: 75%;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#search_bar ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#search_bar li {
+	padding-left: 1.3em;
+	text-indent: -1em;
+}
+
+#search_bar li:before {
+	content: "\25B6";
+	padding-right: 3px;
+	color: green;
+	animation-name: bulletin;
+	animation-duration: .7s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+#movie_title_header {
+	text-align: left;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+#search_bar input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+  border: 3px solid black;
+  border-radius: 15px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('../img/search_icon.png');
+  background-position: 12px 12px; 
+  background-repeat: no-repeat;
+  padding: 15px 20px 15px 40px;
+}
+
+#search_bar input:focus{
+	outline: none;
+}
+
+/*------------------------------------------- 2. SEARCH RESULTS --------------------------------------------*/
+
+/*General*/
+#search_results{
+	background: rgba(76, 175, 80, 0.2);
+	padding: 8px;
+	display: grid;
+	grid-template-columns: 35% minmax(0, 1fr);
+	grid-gap: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 75%;
+}
+
+/*Movie Name, Year, Genre*/
+#basic_movie_info{
+	grid-column-start: 1;
+	grid-column-end: 2;
+}
+
+#basic_movie_info > h4 {
+	font-size: 35px;
+	display: inline-block;
+	margin-left: 8px;
+}
+
+#basic_movie_info > span {
+	margin-left: 7px;
+}
+
+/*Movie Image & Description*/
+#movie_image, #movie_description {
+	margin-top: 7px;
+}
+
+#movie_image {
+	grid-row-start: 2;
+	grid-row-end: 3;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#movie_description {
+	grid-row-start: 2;
+	grid-row-end: 4;
+	display: grid;
+	grid-template-columns: minmax(0,1fr);
+	grid-gap: 7px;
+	margin-left: 10px;
+	margin-right: 25px;
+	font-size: 16px;
+	letter-spacing: 1px;
+	line-height: 1.25;
+	text-indent: 20px;
+	text-align: justify;
+	text-justify: inter-word;
+}
+
+/*Ratings*/
+#ratings {
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+#ratings > h5 {
+	font-size: 17px;
+	font-weight: bold;
+	text-decoration: underline;
+	letter-spacing: 1.7px;
+}
+ 
+#ratings_alignment {
+	display: flex;
+	flex-direction: row;
+	padding: 5px;
+}
+
+#ratings_alignment > div {
+	flex: 1 1 auto;
+	margin: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	letter-spacing: 1.55px;
+}
+
+#ratings_alignment > div > span {
+	color: red;
+}
+
+/*"More" Button*/
+#more_info {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 5;
+	display: flex;
+	justify-content: center;
+}
+
+#more_info button {
+	display: inline-block;
+	background: linear-gradient(to right, #00e64d, #4d4dff, #cc6666);
+	border: 2px solid black;
+	background-size: 400% 400%;
+	animation: gradient 8s ease infinite;
+	border-radius: 12px;
+	color: black;
+	padding: 7px 15px;
+	text-align: center;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 20px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+#more_info button:focus {
+	outline: none;
+}
+
+#more_info_button {
+	display: inline-block;
+}
+
+#more_info_button span {
+	display: inline-block;
+	position: relative;
+	transition: 0.25s;
+}
+
+#more_info_button span:after {
+	content: '\25BC';
+	font-size: 20px;
+	line-height: 1.3;
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.25s;
+}
+
+#more_info_button:hover span {
+	padding-right: 25px;
+}
+
+#more_info_button:hover span:after {
+	opacity: 1;
+	right: 0;
+}
+
+/*------------------------------------------- 3. FOOTER --------------------------------------------*/
+#footer_info {
+	text-align: center;
+}
+
+/*------------------------------------------- KEYFRAMES --------------------------------------------*/
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes bulletin {
+	to {
+		text-shadow: 5px 3px 12px white;
+	}
+}
+
+@keyframes glow {
+	to {
+		text-shadow: 2px 2px 8px blue;
+	}
+}
