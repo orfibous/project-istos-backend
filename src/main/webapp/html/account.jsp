@@ -10,16 +10,18 @@
 <head>
     <meta charset="UTF-8">
     <title>My Account</title>
-    <link rel="icon" type="image/svg" href="img/favicon.svg">
-    <link rel="stylesheet" type="text/css" href="../css/main.css"/>
-    <script src = "../js/main.js"></script>
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.svg" type="image/x-icon">
+    <link href="${pageContext.request.contextPath}/resources/css/index_styling.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/login_styling.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
+    <script src = "${pageContext.request.contextPath}/resources/js/main.js"></script>
 </head>
 <body>
 <header>
     <div class = "navigation_bar">
-        <a class = "selection" href = "../index.jsp"><img src = "../resources/images/favicon.svg" alt="Film Busters Logo"></a>
-        <a class = "selection" id = "current_page" href = "account.jsp">My Bookmarks</a>
-        <a class = "selection" href = "contact.jsp">Contact</a>
+        <a class = "selection" href = "${pageContext.request.contextPath}/html/index.jsp"><img src = "${pageContext.request.contextPath}/resources/images/favicon.svg" alt="Film Busters Logo"></a>
+        <a class = "selection" id = "current_page" href = "${pageContext.request.contextPath}/html/account.jsp">My Bookmarks</a>
+        <a class = "selection" href = "${pageContext.request.contextPath}/html/contact.jsp">Contact</a>
         <div class = "login_container">
             <a href = "#" id = "login_button"><span>Login</span><em></em></a>
             <div style = "clear:both"></div>
@@ -43,7 +45,6 @@
                 </form>
             </div>
         </div>
-    </div>
     </div>
 </header>
 <div class = "grid_container">

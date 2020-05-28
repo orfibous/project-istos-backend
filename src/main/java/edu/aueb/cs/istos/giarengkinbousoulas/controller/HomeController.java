@@ -7,14 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
     @RequestMapping(value = "/")
     public String home(){
-        return "test";
-    }
-
-    @Controller
-    static class FaviconController {
-        @RequestMapping("favicon.svg")
-        String favicon() {
-            return "forward:/resources/images/favicon.svg";
-        }
+        return "index";
     }
 }

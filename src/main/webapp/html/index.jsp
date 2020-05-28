@@ -12,18 +12,18 @@
 <head>
     <meta charset="UTF-8">
     <title>FilmBusters Home Page</title>
-    <link rel="icon" href='<c:url value="/resources/images/favicon.ico" />' type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="css/index_styling.css"/>
-    <link rel="stylesheet" type="text/css" href="css/login_styling.css"/>
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.svg" type="image/x-icon">
+    <link href="${pageContext.request.contextPath}/resources/css/index_styling.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/login_styling.css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
-    <script src = "js/main.js"></script>
+    <script src = "${pageContext.request.contextPath}/resources/js/main.js"></script>
 </head>
 <body>
 <header>
     <div class = "navigation_bar">
-        <a class = "selection" id = "current_page" href = "index.jsp"><img src = "resources/images/favicon.svg" alt="Film Busters Logo"></a>
-        <a class = "selection" href = "html/account.jsp">My Bookmarks</a>
-        <a class = "selection" href = "html/contact.jsp">Contact</a>
+        <a class = "selection" id = "current_page" href = "${pageContext.request.contextPath}/html/index.jsp"><img src = "${pageContext.request.contextPath}/resources/images/favicon.svg" alt="Film Busters Logo"></a>
+        <a class = "selection" href = "${pageContext.request.contextPath}/html/account.jsp">My Bookmarks</a>
+        <a class = "selection" href = "${pageContext.request.contextPath}/html/contact.jsp">Contact</a>
         <div class = "login_container">
             <a href = "#" id = "login_button"><span>Login</span><em></em></a>
             <div style = "clear:both"></div>
@@ -47,7 +47,6 @@
                 </form>
             </div>
         </div>
-    </div>
     </div>
 </header>
 <div class = "grid_container">
@@ -73,7 +72,7 @@
         <section id = "movie_image">
             <picture>
                 <!--<source media = "(max-width: 883px)" srcset = "mobile_images/tim_berners_lee_mobile.jpg">-->
-                <img id = "no_image" src = "resources/images/no_image.jpg" alt = "no_image_placeholder">
+                <img id = "no_image" src = "${pageContext.request.contextPath}/resources/images/no_image.jpg" alt = "no_image_placeholder">
             </picture>
         </section>
         <section id = "movie_description">
@@ -82,13 +81,13 @@
                 <h5> RATINGS: </h5>
                 <div id = "ratings_alignment">
                     <div style = "text-align: left">
-                        <img style = "vertical-align: middle" src = "resources/images/imdb.png" alt = "imdb"> : <span id = "imdb_rating">0</span> / 10
+                        <img style = "vertical-align: middle" src = "${pageContext.request.contextPath}/resources/images/imdb.png" alt = "imdb"> : <span id = "imdb_rating">0</span> / 10
                     </div>
                     <div style = "text-align: left">
-                        <img style = "vertical-align: middle" src = "resources/images/rotten_tomatoes.png" alt = "rt"> : <span id = "rt_rating">0</span> %
+                        <img style = "vertical-align: middle" src = "${pageContext.request.contextPath}/resources/images/rotten_tomatoes.png" alt = "rt"> : <span id = "rt_rating">0</span> %
                     </div>
                     <div style = "text-align: left">
-                        <img style = "vertical-align: middle" src = "resources/images/metacritic.png" alt = "mt"> : <span id = "mc_rating">0</span>
+                        <img style = "vertical-align: middle" src = "${pageContext.request.contextPath}/resources/images/metacritic.png" alt = "mt"> : <span id = "mc_rating">0</span>
                     </div>
                 </div>
             </section>
