@@ -7,14 +7,15 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
+<>
     <meta charset="UTF-8">
     <title>My Account</title>
     <link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.svg" type="image/x-icon">
     <link href="${pageContext.request.contextPath}/resources/css/index_styling.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/login_styling.css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
-    <script src = "${pageContext.request.contextPath}/resources/js/main.js"></script>
+    <script language="JavaScript" type="text/javascript" src = "${pageContext.request.contextPath}/resources/js/main.js"></script>
+    <script language="JavaScript" type="text/javascript" src = "${pageContext.request.contextPath}/resources/js/login.js"></script>
 </head>
 <body>
 <header>

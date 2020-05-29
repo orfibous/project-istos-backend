@@ -16,7 +16,8 @@
     <link href="${pageContext.request.contextPath}/resources/css/index_styling.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/login_styling.css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
-    <script src = "${pageContext.request.contextPath}/resources/js/main.js"></script>
+    <script language="JavaScript" type="text/javascript" src = "${pageContext.request.contextPath}/resources/js/main.js"></script>
+    <script language="JavaScript" type="text/javascript" src = "${pageContext.request.contextPath}/resources/js/login.js"></script>
 </head>
 <body>
 <header>
