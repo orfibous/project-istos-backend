@@ -18,13 +18,19 @@ $(document).ready(function() {
 		});
 
 	function change(){
-		if(image.getAttribute('src') == "../images/like.png"){
-			image.src = "../images/dislike.png";
+		var initialPath = "/project_istos_backend_war_exploded/resources/static/images/"
+		if(image.getAttribute('src') == `${initialPath}like.png`){
+			var path = `${initialPath}dislike.png`;
+			image.src = path;
 			image.style.filter = "drop-shadow(2px 2px 8px red)";
+			image.alt = "dislike";
 		}
 		else {
-			image.src = "../images/like.png";
+			var path = `${initialPath}like.png`;
+			console.log(path);
+			image.src = path;
 			image.style.filter = "drop-shadow(2px 2px 8px lightgreen)";
+			image.alt = "like";
 		}
 	}
 
