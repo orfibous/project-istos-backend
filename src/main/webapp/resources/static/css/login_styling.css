@@ -1,0 +1,166 @@
+/*#login_container {
+	position: relative;
+	display: flex;
+	float: right;
+}*/
+
+
+/*Log In Button*/
+.login_button {
+	float: right;
+	background: lightgray;
+	border: 3px solid black;
+	border-radius: 7px;
+	cursor: pointer;
+	color: black;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 13px 16px;
+	margin-top: 2px;
+	margin-right: 10px;
+	letter-spacing: 1.2px;
+}
+
+.login_button span {
+	color: black;
+	font-weight: bold;
+	text-shadow: 1px 1px white;
+}
+
+.login_button:focus {
+	outline: none;
+}
+
+.login_button:hover {
+	background-color: black;
+	color: white;
+}
+
+/*Log In dropdown box*/
+.login_dropdown_box {
+	position: absolute;
+	max-height: 0;
+	overflow: hidden;
+	top: 57px;
+	right: 10px;
+	background-color: #f1f1f1;
+}
+
+
+.login_button.active {
+	border-radius: 9px;
+	background-color: black;
+	color: white;
+}
+
+
+#login_form {
+	width: 250px;
+	border: 3px solid grey;
+	border-radius: 3px 0 3px 3px;
+	margin-top: -1px;
+	background: #d2e0ea;
+	padding: 8px;
+	letter-spacing: 1px;
+}
+
+#login_form fieldset {
+	margin: 0 0 12px 0;
+	display: block;
+	border: 0;
+	padding: 0;
+}
+
+fieldset #body {
+	background: white;
+	border-radius: 4px;
+	padding: 10px 13px;
+	margin: 0;
+}
+
+#body label {
+	color: black;
+	font-weight: bold;
+	font-size: 17px;
+	margin-top: 9px;
+	margin-bottom: 5px;
+	display: block;
+	float: left;
+}
+
+#login_form input {
+	width: 100%;
+	border: 1px solid #899caa;
+	border-radius: 4px;
+	color: #3a454d;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 8px 8px;
+	box-shadow: inset 0px 1px 3px #bbb;
+}
+
+#submit_buttons {
+	display: flex;
+	justify-content: center;
+	margin-top: 12px;
+	margin-left: 10px;
+}
+
+#submit_buttons #login, #submit_buttons #signup {
+	width: 40%;
+	float: left;
+	background: #339cdf;
+	color: white;
+	padding: 12px 15px 12px 15px;
+	font-size: 15px;
+	text-shadow: 0 -1px #278db8;
+	border: 1px solid #339cdf;
+	margin-right: 12px;
+	cursor: pointer;
+}
+
+#submit_buttons #login:hover, #submit_buttons #signup:hover {
+	background: #1a75ff;
+	border: 1px solid #1a75ff;
+}
+
+#login_form span {
+	text-align: center;
+	display: block;
+	padding: 7px 0 4px 0;
+}
+
+#login_form span a {
+	color: #3a454d;
+	text-shadow: 1px 1px #fff;
+	font-size: 12px;
+}
+
+#login_form #forgot_password{
+	display: block;
+	text-align: center;
+	margin-top: 15px;
+	text-decoration: none;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#login_form #forgot_password:hover {
+	color: white;
+	animation: forgot_password_glow .9s infinite alternate;
+}
+
+#login_form #forgot_password:link, #login_form #forgot_password:visited {
+	color: black;
+}
+
+
+input:focus {
+	outline: none;
+}
+
+@keyframes forgot_password_glow {
+	to {
+		text-shadow: 2px 2px 8px red;
+	}
+}

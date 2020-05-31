@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%--
   Created by IntelliJ IDEA.
   User: captainlinux
@@ -12,38 +12,37 @@
 <head>
     <meta charset="UTF-8">
     <title>FilmBusters Home Page</title>
-    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.svg" type="image/x-icon">
-    <link href="${pageContext.request.contextPath}/resources/css/index_styling.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/login_styling.css"/>
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/static/images/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/static/css/index_styling.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/static/css/login_styling.css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
-    <script language="JavaScript" type="text/javascript" src = "${pageContext.request.contextPath}/resources/js/main.js"></script>
-    <script language="JavaScript" type="text/javascript" src = "${pageContext.request.contextPath}/resources/js/login.js"></script>
+    <script type="text/javascript" src = "${pageContext.request.contextPath}/resources/static/js/index_handler.js"></script>
+    <script type="text/javascript" src = "${pageContext.request.contextPath}/resources/static/js/login_handler.js"></script>
 </head>
 <body>
 <header>
     <div class = "navigation_bar">
-        <a class = "selection" id = "current_page" href = "${pageContext.request.contextPath}/html/index.jsp"><img src = "${pageContext.request.contextPath}/resources/images/favicon.svg" alt="Film Busters Logo"></a>
-        <a class = "selection" href = "${pageContext.request.contextPath}/html/account.jsp">My Bookmarks</a>
-        <a class = "selection" href = "${pageContext.request.contextPath}/html/contact.jsp">Contact</a>
+        <a class = "selection" id = "nav_logo" href = "${pageContext.request.contextPath}/"><img src = "${pageContext.request.contextPath}/resources/static/images/favicon.svg" alt = "logo"></a>
+        <a class = "selection" href = "${pageContext.request.contextPath}/account">My Bookmarks</a>
+        <a class = "selection" href = "${pageContext.request.contextPath}/contact">Contact</a>
         <div class = "login_container">
-            <a href = "#" id = "login_button"><span>Login</span><em></em></a>
-            <div style = "clear:both"></div>
-            <div id = "login_dropdown_box">
+            <button class = "login_button">Login</button>
+            <div class = "login_dropdown_box">
                 <form id = "login_form">
                     <fieldset id = "body">
                         <fieldset>
-                            <label for = "email"> Email Address </label>
+                            <label for = "email"> &#9654 Email Address </label>
                             <input type = "text" name = "email" id = "email" />
                         </fieldset>
                         <fieldset>
-                            <label for = "password">Password</label>
+                            <label for = "password"> &#9654 Password</label>
                             <input type = "password" name = "password" id = "password" />
                         </fieldset>
                         <div id = "submit_buttons">
                             <input type = "submit" id = "login" value = "Log In" />
                             <input type = "submit" id = "signup" value = "Sign Up" />
                         </div>
-                        <a href = "#"> Forgot your password?</a>
+                        <a href = "#" id = "forgot_password"> Forgot your password?</a>
                     </fieldset>
                 </form>
             </div>
@@ -62,39 +61,79 @@
             <ul>
                 <li id = "movie_title_header"> Name of the movie: </li>
             </ul>
-            <input type="text" name = "search" placeholder = "Search...">
+            <input type="text"  placeholder = "Search..." id = "searchBar">
         </section>
     </div>
     <div id = "search_results">
         <section id = "basic_movie_info">
-            <h4> MOVIE NAME </h4>
-            <span> (YEAR) / (GENRE) </span>
+            <h4 id = "movie_name"> MOVIE NAME </h4>
+            <span id = "year"> (YEAR) </span>/<span id = "genre"> (GENRE) </span>
+        </section>
+        <section id = "voting_box">
+            <img src = '${pageContext.request.contextPath}/resources/static/images/like.png' alt = "like" id = "vote_selection"/>
         </section>
         <section id = "movie_image">
             <picture>
                 <!--<source media = "(max-width: 883px)" srcset = "mobile_images/tim_berners_lee_mobile.jpg">-->
-                <img id = "no_image" src = "${pageContext.request.contextPath}/resources/images/no_image.jpg" alt = "no_image_placeholder">
+                <img id = "no_image" src = "${pageContext.request.contextPath}/resources/static/images/no_image.jpg" alt = "no_image_placeholder">
             </picture>
         </section>
         <section id = "movie_description">
-            <p> NO DESCRIPTION AVAILABLE </p>
-            <section id = "ratings">
-                <h5> RATINGS: </h5>
-                <div id = "ratings_alignment">
-                    <div style = "text-align: left">
-                        <img style = "vertical-align: middle" src = "${pageContext.request.contextPath}/resources/images/imdb.png" alt = "imdb"> : <span id = "imdb_rating">0</span> / 10
-                    </div>
-                    <div style = "text-align: left">
-                        <img style = "vertical-align: middle" src = "${pageContext.request.contextPath}/resources/images/rotten_tomatoes.png" alt = "rt"> : <span id = "rt_rating">0</span> %
-                    </div>
-                    <div style = "text-align: left">
-                        <img style = "vertical-align: middle" src = "${pageContext.request.contextPath}/resources/images/metacritic.png" alt = "mt"> : <span id = "mc_rating">0</span>
-                    </div>
+            <p id = "description" style = "color:red;"> NO DESCRIPTION AVAILABLE </p>
+        <section id = "ratings">
+            <h5> RATINGS: </h5>
+            <div id = "ratings_alignment">
+                <div style = "text-align: left">
+                    <img style = "vertical-align: middle" src = "${pageContext.request.contextPath}/resources/static/images/imdb.png" alt = "imdb"> : <span id = "imdb_rating">0</span> / 10
                 </div>
-            </section>
+                <div style = "text-align: left">
+                    <img style = "vertical-align: middle" src = "${pageContext.request.contextPath}/resources/static/images/rotten_tomatoes.png" alt = "rt"> : <span id = "rt_rating">0</span> %
+                </div>
+                <div style = "text-align: left">
+                    <img style = "vertical-align: middle" src = "${pageContext.request.contextPath}/resources/static/images/metacritic.png" alt = "mt"> : <span id = "mc_rating">0</span>
+                </div>
+            </div>
+        </section>
+        </section>
+        <section id = "additional_information">
+            <h5 style = "text-align: center;"> Additional Information for the movie </h5>
+            <table>
+                <tr>
+                    <td> RELEASE DATE: </td>
+                    <td id = "release_date"> DD / MM / YYYY </td>
+                </tr>
+                <tr>
+                    <td> WRITER: </td>
+                    <td id = "writer_names"> NO WRITER NAMES AVAILABLE </td>
+                </tr>
+                <tr>
+                    <td> DIRECTOR: </td>
+                    <td id = "director_names"> NO DIRECTOR NAMES AVAILABLE </td>
+                </tr>
+                <tr>
+                    <td> ACTORS: </td>
+                    <td id = "actor_names"> NO ACTOR NAMES AVAILABLE </td>
+                </tr>
+                <tr>
+                    <td> RUNTIME: </td>
+                    <td id = "runtime"> 0 min </td>
+                </tr>
+                <tr>
+                    <td> RATED: </td>
+                    <td id = "rated_value"> NOT RATED </td>
+                </tr>
+                <tr>
+                    <td> LANGUAGE: </td>
+                    <td id = "language"> UNDEFINED </td>
+                </tr>
+                <tr>
+                    <td> COUNTRY: </td>
+                    <td id = "country"> UNDEFINED </td>
+                </tr>
+            </table>
         </section>
         <section id = "more_info">
-            <button id = "more_info_button"><span> More </span></button>
+            <button id = "more_info_button"><span> More &#9660 </span></button>
         </section>
     </div>
     <div id = "footer_info">
@@ -103,6 +142,5 @@
         </footer>
     </div>
 </div>
-
 </body>
 </html>

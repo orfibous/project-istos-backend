@@ -7,22 +7,22 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<>
+<head>
     <meta charset="UTF-8">
     <title>My Account</title>
-    <link rel="icon" href="${pageContext.request.contextPath}/resources/images/favicon.svg" type="image/x-icon">
-    <link href="${pageContext.request.contextPath}/resources/css/index_styling.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/login_styling.css"/>
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/static/images/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/static/css/index_styling.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/static/css/login_styling.css"/>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
-    <script language="JavaScript" type="text/javascript" src = "${pageContext.request.contextPath}/resources/js/main.js"></script>
-    <script language="JavaScript" type="text/javascript" src = "${pageContext.request.contextPath}/resources/js/login.js"></script>
+    <script type="text/javascript" src = "${pageContext.request.contextPath}/resources/static/js/index_handler.js"></script>
+    <script type="text/javascript" src = "${pageContext.request.contextPath}/resources/static/js/login_handler.js"></script>
 </head>
 <body>
 <header>
     <div class = "navigation_bar">
-        <a class = "selection" href = "${pageContext.request.contextPath}/html/index.jsp"><img src = "${pageContext.request.contextPath}/resources/images/favicon.svg" alt="Film Busters Logo"></a>
-        <a class = "selection" id = "current_page" href = "${pageContext.request.contextPath}/html/account.jsp">My Bookmarks</a>
-        <a class = "selection" href = "${pageContext.request.contextPath}/html/contact.jsp">Contact</a>
+        <a class = "selection" id = "nav_logo" href = "${pageContext.request.contextPath}/"><img src = "${pageContext.request.contextPath}/resources/static/images/favicon.svg" alt = "logo"></a>
+        <a class = "selection" href = "${pageContext.request.contextPath}/account">My Bookmarks</a>
+        <a class = "selection" href = "${pageContext.request.contextPath}/contact">Contact</a>
         <div class = "login_container">
             <a href = "#" id = "login_button"><span>Login</span><em></em></a>
             <div style = "clear:both"></div>
