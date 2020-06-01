@@ -67,7 +67,7 @@
     <div id = "search_results">
         <section id = "basic_movie_info">
             <h4 id = "movie_name"> MOVIE NAME </h4>
-            <span id = "year"> (YEAR) </span>/<span id = "genre"> (GENRE) </span>
+            <span id = "year"> (YEAR) </span><span> / </span><span id = "genre"> (GENRE) </span>
         </section>
         <section id = "voting_box">
             <img src = '${pageContext.request.contextPath}/resources/static/images/like.png' alt = "like" id = "vote_selection"/>
@@ -87,7 +87,7 @@
                     <img style = "vertical-align: middle" src = "${pageContext.request.contextPath}/resources/static/images/imdb.png" alt = "imdb"> : <span id = "imdb_rating">0</span> / 10
                 </div>
                 <div style = "text-align: left">
-                    <img style = "vertical-align: middle" src = "${pageContext.request.contextPath}/resources/static/images/rotten_tomatoes.png" alt = "rt"> : <span id = "rt_rating">0</span> %
+                    <img style = "vertical-align: middle" src = "${pageContext.request.contextPath}/resources/static/images/rotten_tomatoes.png" alt = "rt"> : <span id = "rt_rating">0</span>
                 </div>
                 <div style = "text-align: left">
                     <img style = "vertical-align: middle" src = "${pageContext.request.contextPath}/resources/static/images/metacritic.png" alt = "mt"> : <span id = "mc_rating">0</span>
