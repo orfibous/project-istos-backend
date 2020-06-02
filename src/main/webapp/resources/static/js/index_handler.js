@@ -7,7 +7,7 @@ $(document).ready(function() {
 	input.addEventListener('keyup', function(e) {
 		clearTimeout(timeout);
 		timeout = setTimeout(function() {
-			//THIS IS WHERE THE INFORMATION MUST BE UPDATED VIA THE API.
+			//Call API to find movie
 			requestMovieDataShort(input.value);
 			lastTestResult = input.value;
 		}, 1000);
@@ -21,7 +21,7 @@ $(document).ready(function() {
 
 	function change(){
 		var initialPath = "/project_istos_backend_war_exploded/resources/static/images/"
-		if(image.getAttribute('src') == `${initialPath}like.png`){
+		if(image.getAttribute('src') === `${initialPath}like.png`){
 			var path = `${initialPath}dislike.png`;
 			image.src = path;
 			image.style.filter = "drop-shadow(2px 2px 8px red)";
@@ -53,7 +53,7 @@ $(document).ready(function() {
 
 	//API Request Movie data with short plot
 	function requestMovieDataShort(searchText) {
-		if (searchText == ""){
+		if (searchText === " "){
 			return ;
 		}
 		var request = new XMLHttpRequest();
@@ -67,7 +67,7 @@ $(document).ready(function() {
 			//parse JSON
 			var data = JSON.parse(this.responseText);
 			//check if a movie was found
-			if (data.Error == "Movie not found!"){
+			if (data.Error === "Movie not found!"){
 				const title = document.getElementById('movie_name');
 				title.innerHTML = "Movie not found!";
 				return ;
@@ -154,7 +154,7 @@ $(document).ready(function() {
 			//parse JSON
 			var data = JSON.parse(this.responseText);
 			//check if a movie was found
-			if (data.Error == "Movie not found!"){
+			if (data.Error === "Movie not found!"){
 				const title = document.getElementById('movie_name');
 				title.innerHTML = "Movie not found!";
 				return ;
