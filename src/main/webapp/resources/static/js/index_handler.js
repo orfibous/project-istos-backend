@@ -8,8 +8,12 @@ $(document).ready(function() {
 		clearTimeout(timeout);
 		timeout = setTimeout(function() {
 			//Call API to find movie
+			resetDefaultView();
 			requestMovieDataShort(input.value);
 			lastTestResult = input.value;
+			if (element === " More" + ' \u25B2 ') {
+				requestMovieDataShort(lastTestResult);
+			}
 		}, 1000);
 	});
 
@@ -48,6 +52,7 @@ $(document).ready(function() {
 		else {
 			$("#more_info_button").text(" More" + down);
 			$("#additional_information").slideUp();
+			requestMovieDataShort(lastTestResult);
 		}
 	});
 
@@ -85,6 +90,30 @@ $(document).ready(function() {
 				description.style.color = "#FFFFFF";
 				const imdb_rating = document.getElementById('imdb_rating');
 				imdb_rating.innerHTML = data.imdbRating;
+				const release_date = document.getElementById('release_date');
+				release_date.innerHTML = data.Released;
+				release_date.style.color = "#FFFFFF";
+				const runtime = document.getElementById('runtime');
+				runtime.innerHTML = data.Runtime;
+				runtime.style.color = "#FFFFFF";
+				const writer_names = document.getElementById('writer_names');
+				writer_names.innerHTML = data.Writer;
+				writer_names.style.color = "#FFFFFF";
+				const director_names = document.getElementById('director_names');
+				director_names.innerHTML = data.Director;
+				director_names.style.color = "#FFFFFF";
+				const actor_names = document.getElementById('actor_names');
+				actor_names.innerHTML = data.Actors;
+				actor_names.style.color = "#FFFFFF";
+				const rated_value = document.getElementById('rated_value');
+				rated_value.innerHTML = data.Rated;
+				rated_value.style.color = "#FFFFFF";
+				const language = document.getElementById('language');
+				language.innerHTML = data.Language;
+				language.style.color = "#FFFFFF";
+				const country = document.getElementById('country');
+				country.innerHTML = data.Country;
+				country.style.color = "#FFFFFF";
 				//change color based on score
 				var score = parseFloat(data.imdbRating)*10;
 				if (score <= 25){
@@ -161,42 +190,61 @@ $(document).ready(function() {
 			}
 			//else check HTTP request response and print info
 			if(request.status>= 200 && request.status < 400){
-				const release_date = document.getElementById('release_date');
-				release_date.innerHTML = data.Released;
-				release_date.style.color = "#FFFFFF";
-				const runtime = document.getElementById('runtime');
-				runtime.innerHTML = data.Runtime;
-				runtime.style.color = "#FFFFFF";
-				const writer_names = document.getElementById('writer_names');
-				writer_names.innerHTML = data.Writer;
-				writer_names.style.color = "#FFFFFF";
 				const description = document.getElementById('description');
 				description.innerHTML = data.Plot;
 				description.style.color = "#FFFFFF";
-				const director_names = document.getElementById('director_names');
-				director_names.innerHTML = data.Director;
-				director_names.style.color = "#FFFFFF";
-				const actor_names = document.getElementById('actor_names');
-				actor_names.innerHTML = data.Actors;
-				actor_names.style.color = "#FFFFFF";
-				const rated_value = document.getElementById('rated_value');
-				rated_value.innerHTML = data.Rated;
-				rated_value.style.color = "#FFFFFF";
-				const language = document.getElementById('language');
-				language.innerHTML = data.Language;
-				language.style.color = "#FFFFFF";
-				const country = document.getElementById('country');
-				country.innerHTML = data.Country;
-				country.style.color = "#FFFFFF";
-
 			}else{
 				console.log("error");
 			}
-
 		};
+	}
 
+	function resetDefaultView() {
+		const title = document.getElementById('movie_name');
+		title.innerHTML = "MOVIE NAME";
+		const year = document.getElementById('year');
+		year.innerHTML = " (YEAR) ";
+		const genre = document.getElementById('genre');
+		genre.innerHTML = " (GENRE) ";
+		const description = document.getElementById('description');
+		description.innerHTML = "NO DESCRIPTION AVAILABLE";
+		description.style.color = "#ff0000";
+		const imdb_rating = document.getElementById('imdb_rating');
+		imdb_rating.innerHTML = "0.0";
+		imdb_rating.style.color = "#ff0000";
+		const release_date = document.getElementById('release_date');
+		release_date.innerHTML = "DD / MM / YYYY";
+		release_date.style.color = "#ff0000";
+		const runtime = document.getElementById('runtime');
+		runtime.innerHTML = "0 min";
+		runtime.style.color = "#ff0000";
+		const writer_names = document.getElementById('writer_names');
+		writer_names.innerHTML = "NO WRITER NAMES AVAILABLE";
+		writer_names.style.color = "#ff0000";
+		const director_names = document.getElementById('director_names');
+		director_names.innerHTML = "NO DIRECTOR NAMES AVAILABLE";
+		director_names.style.color = "#ff0000";
+		const actor_names = document.getElementById('actor_names');
+		actor_names.innerHTML = "NO ACTOR NAMES AVAILABLE";
+		actor_names.style.color = "#ff0000";
+		const rated_value = document.getElementById('rated_value');
+		rated_value.innerHTML = "NOT RATED";
+		rated_value.style.color = "#ff0000";
+		const language = document.getElementById('language');
+		language.innerHTML = "UNDEFINED";
+		language.style.color = "#ff0000";
+		const country = document.getElementById('country');
+		country.innerHTML = "UNDEFINED";
+		country.style.color = "#ff0000";
+		const rt_rating = document.getElementById('rt_rating');
+		rt_rating.innerHTML = "0%"
+		rt_rating.style.color = "#ff0000";
+		const mc_rating = document.getElementById('mc_rating');
+		mc_rating.innerHTML = "0";
+		mc_rating.style.color = "#ff0000";
 
-
+		const image = document.getElementById('no_image');
+		image.src = "/project_istos_backend_war_exploded/resources/static/images/no_image.jpg";
 	}
 
 });
