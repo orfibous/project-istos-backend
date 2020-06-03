@@ -10,5 +10,8 @@
         <module name="project-istos-backend" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="project-istos" target="6" />
+    </bytecodeTargetLevel>
   </component>
 </project>

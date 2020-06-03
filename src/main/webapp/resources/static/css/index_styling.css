@@ -1,15 +1,12 @@
 * {
 	box-sizing: border-box;
-	font-family: Calibri;
+    font-family: Calibri, serif;
 	margin: 0;
 }
 
 body {
-	background-image: url('../images/background.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
+    background: url('../images/background.jpg') no-repeat fixed center;
+    background-size: cover;
 }
 
 /*------------------------------------------- NAVIGATION BAR --------------------------------------------*/
@@ -42,6 +39,10 @@ body {
 	color: black;
 }
 
+#nav_logo:hover {
+	animation: logo_glow .8s infinite alternate;
+}
+
 
 /*------------------------------------------- GRID CONTAINER (GENERAL) --------------------------------------------*/
 
@@ -68,7 +69,7 @@ h1 {
 	margin-bottom: 15px;
 	font-size: 40px;
 	animation: glow .9s infinite alternate;
-
+	
 }
 
 h3 {
@@ -84,10 +85,7 @@ h3 {
 	grid-row-start: 2;
 	grid-row-end: 3;
 	width: 75%;
-	margin-top: 100px;
-	margin-bottom: 100px;
-	margin-left: auto;
-	margin-right: auto;
+    margin: 100px auto;
 }
 
 #search_bar ul {
@@ -119,15 +117,12 @@ h3 {
 }
 
 #search_bar input[type=text] {
-	width: 100%;
-	box-sizing: border-box;
-	border: 3px solid black;
-	border-radius: 15px;
-	font-size: 16px;
-	background-color: white;
-	background-image: url('../images/search_icon.png');
-	background-position: 12px 12px;
-	background-repeat: no-repeat;
+  width: 100%;
+  box-sizing: border-box;
+  border: 3px solid black;
+  border-radius: 15px;
+  font-size: 16px;
+    background: white url('../images/search_icon.png') no-repeat 12px 12px;
 	padding: 15px 20px 15px 40px;
 }
 
@@ -171,10 +166,18 @@ h3 {
 	grid-column-end: 4;
 }
 
+.navigation_bar .selection:hover {
+	background-color: grey;
+	border: 1px solid black;
+	padding: 15px;
+	color: white;
+	animation: glow .8s infinite alternate;
+}
+
 #vote_selection {
 	float: right;
 	margin-right: 10px;
-	filter: drop-shadow(2px 2px 8px lightgreen);
+	filter: drop-shadow(2px 2px 8px darkblue);
 }
 
 #vote_selection:hover{
@@ -191,6 +194,11 @@ h3 {
 	grid-row-end: 3;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+#movie_image > img {
+	width: 100px;
+	height: 100px;
 }
 
 #movie_description {
@@ -221,7 +229,7 @@ h3 {
 	text-decoration: underline;
 	letter-spacing: 1.7px;
 }
-
+ 
 #ratings_alignment {
 	display: flex;
 	flex-direction: row;
@@ -280,7 +288,6 @@ td:nth-child(odd){
 
 td:nth-child(even){
 	font-size: 15px;
-	text-decoration: underline;
 	color: red;
 	text-align: justify;
 	text-justify: inter-word;
@@ -337,13 +344,13 @@ td:nth-child(even){
 
 @keyframes gradient {
 	0% {
-		background-position: 0% 50%;
+		background-position: 0 50%;
 	}
 	50% {
 		background-position: 100% 50%;
 	}
 	100% {
-		background-position: 0% 50%;
+		background-position: 0 50%;
 	}
 }
 
@@ -356,5 +363,17 @@ td:nth-child(even){
 @keyframes glow {
 	to {
 		text-shadow: 2px 2px 8px blue;
+	}
+}
+
+@keyframes logo_glow {
+	to {
+		filter: drop-shadow(2px 2px 8px blue);
+	}
+}
+
+@keyframes bookmark_glow {
+	to {
+		filter: drop-shadow(2px 2px 8px darkblue);
 	}
 }

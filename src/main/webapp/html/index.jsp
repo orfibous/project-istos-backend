@@ -6,12 +6,12 @@
   Time: 2:24 π.μ.
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>FilmBusters Home Page</title>
+    <title>FilmBusters - Homepage</title>
     <link rel="icon" href="${pageContext.request.contextPath}/resources/static/images/favicon.svg" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/static/css/index_styling.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/static/css/login_styling.css"/>
@@ -31,11 +31,11 @@
                 <form id = "login_form">
                     <fieldset id = "body">
                         <fieldset>
-                            <label for = "email"> &#9654 Email Address </label>
+                            <label for = "email"> &#9654; Email Address </label>
                             <input type = "text" name = "email" id = "email" />
                         </fieldset>
                         <fieldset>
-                            <label for = "password"> &#9654 Password</label>
+                            <label for = "password"> &#9654; Password</label>
                             <input type = "password" name = "password" id = "password" />
                         </fieldset>
                         <div id = "submit_buttons">
@@ -53,7 +53,7 @@
     <div id = "introductory">
         <section>
             <h1> Welcome to FilmBusters! </h1>
-            <h3> This is a page where you can find important details about a film you are searching as well as see the ratings from popular rating sites! Type the name of the film in the search bar to begin...</h3>
+            <h3> This is a page where you can find important details about a film you are searching as well as see the ratings from popular rating sites! <br> You can vote for a selected movie as well as save it as a bookmark, which can be then accessed from the "My Bookmarks" tab! <br> Use the search bar below to start searching for a movie. </h3>
         </section>
     </div>
     <div id = "search_bar">
@@ -70,11 +70,10 @@
             <span id = "year"> (YEAR) </span><span> / </span><span id = "genre"> (GENRE) </span>
         </section>
         <section id = "voting_box">
-            <img src = '${pageContext.request.contextPath}/resources/static/images/like.png' alt = "like" id = "vote_selection"/>
+            <img src = '${pageContext.request.contextPath}/resources/static/images/save_bookmark.png' alt = "like" id = "vote_selection"/>
         </section>
         <section id = "movie_image">
             <picture>
-                <!--<source media = "(max-width: 883px)" srcset = "mobile_images/tim_berners_lee_mobile.jpg">-->
                 <img id = "no_image" src = "${pageContext.request.contextPath}/resources/static/images/no_image.jpg" alt = "no_image_placeholder">
             </picture>
         </section>
