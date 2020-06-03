@@ -1,4 +1,4 @@
-var lastTestResult
+var lastTestResult;
 
 $(document).ready(function() {
 	//Search Bar
@@ -162,11 +162,7 @@ $(document).ready(function() {
 			}else{
 				console.log("error");
 			}
-
 		};
-
-
-
 	}
 	//API Request Movie data with long plot
 	function requestMovieDataLong(searchText) {

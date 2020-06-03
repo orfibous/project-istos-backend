@@ -1,0 +1,212 @@
+* {
+	box-sizing: border-box;
+	font-family: Calibri;
+	margin: 0;
+}
+
+body {
+	background-image: url('../images/background.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+/*------------------------------------------- NAVIGATION BAR --------------------------------------------*/
+.navigation_bar {
+	overflow: hidden;
+	background: linear-gradient(to right, #99ff66, #3399ff, #ff7733);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+}
+
+.navigation_bar .selection {
+	display: flex;
+	float: left;
+	text-decoration: none;
+	text-align: center;
+	padding: 16px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.navigation_bar .selection:hover {
+	background-color: grey;
+	border: 1px solid black;
+	padding: 15px;
+	color: white;
+	animation: glow .8s infinite alternate;
+}
+
+.selection:link, .selection:visited {
+	color: black;
+}
+
+#nav_logo:hover {
+	animation: logo_glow .8s infinite alternate;
+}
+
+
+/*------------------------------------------- GRID CONTAINER (GENERAL) --------------------------------------------*/
+
+.grid_container {
+	display: grid;
+	grid-template-columns: minmax(0,1fr);
+	grid-gap: 15px;
+	max-width: 100%;
+	margin: auto;
+	color: white;
+	padding: 14px;
+}
+
+h1, h3  {
+	color: white;
+	text-align: center;
+}
+
+h1 {
+	text-align: center;
+	text-decoration: underline;
+	font-style: italic;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-size: 40px;
+	animation: glow .9s infinite alternate;
+	
+}
+
+h3 {
+	text-align: center;
+	font-size: 20px;
+	margin: 20px 10px 0 10px;
+}
+
+
+/*------------------------------------------- 1. CONTACTS --------------------------------------------*/
+/*General*/
+#no_bookmarks {
+	font-size: 50px;
+	font-style: italic;
+	letter-spacing: 1.3px;
+	color: red;
+	display: none;
+}
+
+#bookmarks_box {
+	padding: 8px;
+	display: grid;
+	grid-template-columns: 35% minmax(0, 1fr);
+	grid-gap: 65px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 65%;
+	
+}
+
+#bookmarks_box a {
+	color: yellow;
+	text-decoration: none;
+	animation: contact_links_glow .8s infinite alternate;
+}
+
+.single_bookmark_box {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	display: grid;
+	grid-template-columns: 23%;
+	background: rgba(128, 223, 255, 0.2);
+	border: 4px solid rgba(0, 0, 0, 0.5);
+	padding: 7px 15px 15px 15px;
+}
+
+.bookmark_title > h4 {
+	font-size: 19px;
+	letter-spacing: 1.2px;
+	text-decoration: underline;
+	margin-top: 6px;
+	animation: glow .9s infinite alternate;
+}
+
+.remove_bookmark_box .remove_bookmark {
+	float: right;
+}
+
+.remove_bookmark_box .remove_bookmark:hover {
+	cursor: pointer;
+	filter: drop-shadow(2px 2px 8px red);
+}
+
+.movie_image {
+	grid-row-start: 2;
+	grid-row-end: 3;
+	margin: 7px 15px 15px 15px;
+}
+
+.movie_image .image_placeholder {
+	width: 150px;
+	height: 180px;
+}
+
+.bookmark_info {
+	grid-row-start: 2;
+	grid-row-end: 4;
+	margin-top: 12px;
+	margin-left: 20px;
+}
+
+.bookmark_info > p {
+	text-decoration: underline;
+	font-size: 25px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	margin-right: 8px;
+	margin-left: 35px;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.bookmark_info > span {
+	font-size: 18px;
+}
+
+.bookmark_info > ul li {
+	margin: 15px;
+}
+
+/*------------------------------------------- 2. FOOTER --------------------------------------------*/
+#footer_info {
+	text-align: center;
+	margin-top: 100px;
+}
+
+/*------------------------------------------- KEYFRAMES --------------------------------------------*/
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes bulletin {
+	to {
+		text-shadow: 5px 3px 12px white;
+	}
+}
+
+@keyframes glow {
+	to {
+		text-shadow: 2px 2px 8px blue;
+	}
+}
+
+@keyframes logo_glow {
+	to {
+		filter: drop-shadow(2px 2px 8px blue);
+	}
+}
