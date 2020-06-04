@@ -1,7 +1,7 @@
 package edu.aueb.cs.istos.giarengkinbousoulas.configuration;
 
 import edu.aueb.cs.istos.giarengkinbousoulas.dao.UserDAO;
-import edu.aueb.cs.istos.giarengkinbousoulas.dao.UserDAOImpl;
+import edu.aueb.cs.istos.giarengkinbousoulas.dao.UserDaoImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -24,8 +24,11 @@ public class WebConfig {
     }
 
     @Bean
-    public UserDAO getUserDao() {
-        return new UserDAOImpl(getDataSource());
+    /*public UserDAO getUserDao() {
+        return new UserDaoImpl(getDataSource());
+    }*/
+    public UserDaoImpl getUserDao() {
+        return new UserDaoImpl();
     }
 
 }

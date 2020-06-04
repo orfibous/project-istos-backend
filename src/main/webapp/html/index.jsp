@@ -18,6 +18,13 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
     <script type="text/javascript" src = "${pageContext.request.contextPath}/resources/static/js/index_handler.js"></script>
     <script type="text/javascript" src = "${pageContext.request.contextPath}/resources/static/js/login_handler.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.min.js"></script>
+
 </head>
 <body>
 <header>
@@ -42,7 +49,6 @@
                             <input type = "submit" id = "login" value = "Log In" />
                             <input type = "submit" id = "signup" value = "Sign Up" />
                         </div>
-                        <a href = "#" id = "forgot_password"> Forgot your password?</a>
                     </fieldset>
                 </form>
             </div>

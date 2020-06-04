@@ -1,6 +1,7 @@
 package edu.aueb.cs.istos.giarengkinbousoulas.controller;
 
 import edu.aueb.cs.istos.giarengkinbousoulas.dao.UserDAO;
+import edu.aueb.cs.istos.giarengkinbousoulas.dao.UserDaoImpl;
 import edu.aueb.cs.istos.giarengkinbousoulas.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,6 +16,12 @@ import java.util.List;
 @Controller
 public class HomeController {
     @RequestMapping("/")
+    public ModelAndView login(ModelAndView model){
+        model.setViewName("login");
+        return model;
+    }
+
+    @RequestMapping("/index")
     public ModelAndView home(ModelAndView model){
         model.setViewName("index");
         return model;
@@ -32,14 +39,14 @@ public class HomeController {
     }
 
     @Autowired
-    private UserDAO userDAO;
+    private UserDaoImpl userDAO;
 
-    @RequestMapping(value = "/fetch")
+    /*@RequestMapping(value = "/fetch")
     public ModelAndView listUser(ModelAndView model) throws IOException {
 
         List<User> usersList = userDAO.usersList();
         model.addObject("usersList", usersList);
         model.setViewName("fetch");
         return model;
-    }
+    }*/
 }

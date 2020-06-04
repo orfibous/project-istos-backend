@@ -1,6 +1,25 @@
 var lastTestResult;
 
 $(document).ready(function() {
+	//Login
+	$("#loginForm").validate({
+		rules: {
+			email: {
+				required: true,
+				email: true
+			},
+			password: "required",
+		},
+
+		messages: {
+			email: {
+				required: "Please enter email",
+				email: "Please enter a valid email address"
+			},
+			password: "Please enter password"
+		}
+	});
+
 	//Search Bar
 	let input = document.getElementById("searchBar");
 	let timeout = null;

@@ -20,7 +20,7 @@
 <body>
     <header>
         <div class = "navigation_bar">
-            <a class = "selection" id = "nav_logo" href = "${pageContext.request.contextPath}/"><img src = "${pageContext.request.contextPath}/resources/static/images/favicon.svg" alt = "logo"></a>
+            <a class = "selection" id = "nav_logo" href = "${pageContext.request.contextPath}/index"><img src = "${pageContext.request.contextPath}/resources/static/images/favicon.svg" alt = "logo"></a>
             <a class = "selection" href = "${pageContext.request.contextPath}/account">My Bookmarks</a>
             <a class = "selection" href = "${pageContext.request.contextPath}/contact">Contact</a>
             <div class = "login_container">
