@@ -1,5 +1,6 @@
 package edu.aueb.cs.istos.giarengkinbousoulas.controller;
 
+import edu.aueb.cs.istos.giarengkinbousoulas.configuration.Globals;
 import edu.aueb.cs.istos.giarengkinbousoulas.dao.BookmarksDaoImpl;
 import edu.aueb.cs.istos.giarengkinbousoulas.dao.UserDaoImpl;
 import edu.aueb.cs.istos.giarengkinbousoulas.model.Bookmarks;
@@ -48,28 +49,31 @@ public class HomeController {
     }
     @RequestMapping("/account")
     public ModelAndView account(ModelAndView model){
+        BookmarksDaoImpl database = new BookmarksDaoImpl();
+        try {
+            Globals.activeUserBookmarks.setMyBookmarks(database.fillBookmarksList(Globals.activeUserBookmarks.getUserID()));
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        model.addObject("myBookmarks", Globals.activeUserBookmarks.getMyBookmarks());
+        System.out.println(Globals.activeUserBookmarks.getMyBookmarks().get(0));
         model.setViewName("account");
         return model;
     }
 
-    @RequestMapping(value = "/getmyBookmarks", method = RequestMethod.POST)
-    public @ResponseBody List<String> add(HttpServletRequest request, HttpServletResponse response, @RequestParam int userID) throws SQLException {
-        BookmarksDaoImpl database = new BookmarksDaoImpl();
-        Bookmarks bookmarks = new Bookmarks();
-        bookmarks.setMyBookmarks(database.fillBookmarksList(userID));
-        System.out.println("Get Bookmarks for " + userID);
-        return bookmarks.getMyBookmarks();
-    }
-
-//    @RequestMapping("/account")
-//    public ModelAndView account(ModelAndView model){
-//        LoginServlet loginServlet = new LoginServlet();
-//        String name = loginServlet.doPost();
-//        model.setViewName("account");
-//        return model;
+//    @RequestMapping(value = "/getmyBookmarks", method = RequestMethod.POST)
+//    public @ResponseBody List<String> add(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+//        BookmarksDaoImpl database = new BookmarksDaoImpl();
+//        Globals.activeUserBookmarks.setMyBookmarks(database.fillBookmarksList(Globals.activeUserBookmarks.getUserID()));
+//        System.out.println("Get Bookmarks for " + Globals.activeUserBookmarks.getUserID());
+//        return Globals.activeUserBookmarks.getMyBookmarks();
 //    }
-
-//    @Autowired
-//    private UserDaoImpl userDAO;
+//
+//    @RequestMapping("getBookmarks")
+//    public List<String> getBookmarks() throws SQLException {
+//        BookmarksDaoImpl database = new BookmarksDaoImpl();
+//        Globals.activeUserBookmarks.setMyBookmarks(database.fillBookmarksList(Globals.activeUserBookmarks.getUserID()));
+//        return Globals.activeUserBookmarks.getMyBookmarks();
+//    }
 
 }

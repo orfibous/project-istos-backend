@@ -1,5 +1,6 @@
 package edu.aueb.cs.istos.giarengkinbousoulas.dao;
 
+import edu.aueb.cs.istos.giarengkinbousoulas.model.Bookmark;
 import edu.aueb.cs.istos.giarengkinbousoulas.model.User;
 import edu.aueb.cs.istos.giarengkinbousoulas.model.Bookmarks;
 import edu.aueb.cs.istos.giarengkinbousoulas.utils.DatabaseHandler;
@@ -8,7 +9,7 @@ import java.sql.*;
 import java.util.List;
 
 public class BookmarksDaoImpl {
-    public List<String> fillBookmarksList(int userID) throws SQLException {
+    public List<Bookmark> fillBookmarksList(int userID) throws SQLException {
         Bookmarks bookmarks = new Bookmarks();
 
         Connection connection = null;
@@ -25,7 +26,8 @@ public class BookmarksDaoImpl {
             System.out.println(results);
             while(results.next()){
                 movieID = results.getString("MOVIE_ID");
-                bookmarks.addToList(movieID);
+                Bookmark bookmark = new Bookmark(movieID);
+                bookmarks.addToList(bookmark);
             }
         }
         catch (SQLException SQLE){

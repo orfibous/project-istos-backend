@@ -19,20 +19,19 @@ $(document).ready(function() {
     }
 });
 
-var myBookmarks = null;
-var userID = 1;
-$(document).ready(function () {
-
-    $.ajax({
-        type:"POST",
-        url: "/getmyBookmarks",
-        data: {userID: userID},
-        success: function (response) {
-            myBookmarks = JSON.parse(response);
-            console.log(myBookmarks);
-        },
-        error: function () {
-            alert("Error getting Bookmarks..");
-        }
-    })
-})
+// var myBookmarks = null;
+// $(document).ready(function () {
+//
+//     $.ajax({
+//         type:"POST",
+//         url: "/getmyBookmarks",
+//         success: function (response) {
+//             myBookmarks = JSON.parse(response);
+//             console.log(response);
+//             console.log(myBookmarks);
+//         },
+//         error: function () {
+//             alert("Error getting Bookmarks..");
+//         }
+//     })
+// })

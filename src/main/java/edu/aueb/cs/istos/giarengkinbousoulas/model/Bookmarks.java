@@ -7,25 +7,25 @@ public class Bookmarks {
 
     //Class Variables
     private int userID;
-    private List<String> myBookmarks = new ArrayList<>();
+    private List<Bookmark> myBookmarks = new ArrayList<>();
 
     //Constructors
     public Bookmarks(){
 
     }
 
-    public Bookmarks(int userID, List<String> myBookmarks) {
+    public Bookmarks(int userID, List<Bookmark> myBookmarks) {
 
         this.userID = userID;
         this.myBookmarks = myBookmarks;
     }
 
     //Setter and Getters
-    public List<String> getMyBookmarks() {
+    public List<Bookmark> getMyBookmarks() {
         return myBookmarks;
     }
 
-    public void setMyBookmarks(List<String> myBookmarks) {
+    public void setMyBookmarks(List<Bookmark> myBookmarks) {
         this.myBookmarks = myBookmarks;
     }
 
@@ -38,7 +38,7 @@ public class Bookmarks {
     }
 
     //New Methods
-    public void addToList(String input){
+    public void addToList(Bookmark input){
         myBookmarks.add(input);
     }
 

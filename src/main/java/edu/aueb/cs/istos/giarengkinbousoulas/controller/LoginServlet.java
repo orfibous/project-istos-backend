@@ -33,6 +33,7 @@ public class LoginServlet extends HttpServlet {
         }
         System.out.println(validateUser);
         if(validateUser.equals("SUCCESS")){
+            Globals.activeUserBookmarks.setUserID(Globals.activeUser.getID());
             System.out.println("SUCCESS");
             request.setAttribute("email", email);
             request.getRequestDispatcher("/html/index.jsp").forward(request, response); //TODO inform JS that a user is logged

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: captainlinux
@@ -37,7 +38,8 @@
         </div>
         <h3 id = "no_bookmarks"> Your bookmarks' list is empty! </h3>
         <div id = "bookmarks_box">
-            <div class = "single_bookmark_box">
+            <c:forEach var="bookmark" items="${myBookmarks}" varStatus="status">
+            <div id="${bookmark.id}" class = "single_bookmark_box">
                 <section class = "bookmark_title">
                     <h4><span>&#9654; </span> Bookmark <span class = "bookmark_counter"> 1 </span></h4>
                 </section>
@@ -58,27 +60,7 @@
                     </ul>
                 </section>
             </div>
-            <div class = "single_bookmark_box">
-                <section class = "bookmark_title">
-                    <h4><span>&#9654; </span> Bookmark <span class = "bookmark_counter"> 1 </span></h4>
-                </section>
-                <section class = "remove_bookmark_box">
-                    <img src = "${pageContext.request.contextPath}/resources/static/images/remove_bookmark.png" alt = "remove_bookmark" class = "remove_bookmark"/>
-
-                </section>
-                <section class = "movie_image">
-                    <img class = "image_placeholder" src = "${pageContext.request.contextPath}/resources/static/images/no_image.jpg" alt = "no_image_placeholder">
-                </section>
-                <section class = "bookmark_info">
-                    <p class = "movie_name_label"> MOVIE_NAME </p>
-                    <span class = "year"> (YEAR) </span><span> / </span><span class = "genre"> (GENRE) </span>
-                    <ul>
-                        <li><b style = "font-size: 18px;"><u>Directed by</u></b><i class = "director_name"> NO DIRECTOR NAME AVAILABLE </i></li>
-                        <li><b style = "font-size: 18px;"><u>Starring</u>:</b> <i class = "actor_names"> NO ACTOR NAMES AVAILABLE </i></li>
-                        <li><b style = "font-size: 18px;"><u>Summary</u>:</b><i class = "description"> NO SUMMARY AVAILABLE </i></li>
-                    </ul>
-                </section>
-            </div>
+            </c:forEach>
         </div>
         <div id = "footer_info">
             <footer>
