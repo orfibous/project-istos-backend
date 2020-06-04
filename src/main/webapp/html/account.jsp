@@ -24,26 +24,7 @@
             <a class = "selection" href = "${pageContext.request.contextPath}/account">My Bookmarks</a>
             <a class = "selection" href = "${pageContext.request.contextPath}/contact">Contact</a>
             <div class = "login_container">
-                <button class = "login_button">Login</button>
-                <div class = "login_dropdown_box">
-                    <form id = "login_form">
-                        <fieldset id = "body">
-                            <fieldset>
-                                <label for = "email"> &#9654; Email Address </label>
-                                <input type = "text" name = "email" id = "email" />
-                            </fieldset>
-                            <fieldset>
-                                <label for = "password"> &#9654; Password</label>
-                                <input type = "password" name = "password" id = "password" />
-                            </fieldset>
-                            <div id = "submit_buttons">
-                                <input type = "submit" id = "login" value = "Log In" />
-                                <input type = "submit" id = "signup" value = "Sign Up" />
-                            </div>
-                            <a href = "#" id = "forgot_password"> Forgot your password?</a>
-                        </fieldset>
-                    </form>
-                </div>
+                <a class = "logout_link" href = "LogoutServlet"> Logout </a>
             </div>
         </div>
     </header>

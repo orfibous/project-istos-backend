@@ -6,7 +6,7 @@
 
 
 /*Log In Button*/
-.login_button {
+.logout_link {
 	float: right;
 	background: lightgray;
 	border: 3px solid black;
@@ -19,19 +19,14 @@
 	margin-top: 2px;
 	margin-right: 10px;
 	letter-spacing: 1.2px;
+	text-underline: none;
 }
 
-.login_button span {
-	color: black;
-	font-weight: bold;
-	text-shadow: 1px 1px white;
-}
-
-.login_button:focus {
+.logout_link:focus {
 	outline: none;
 }
 
-.login_button:hover {
+.logout_link:hover {
 	background-color: black;
 	color: white;
 }

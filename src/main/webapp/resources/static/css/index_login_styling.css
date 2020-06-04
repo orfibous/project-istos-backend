@@ -25,9 +25,9 @@ body {
 	padding: 16px;
 	font-size: 20px;
 	font-weight: bold;
-	pointer-events: none;
+	/*pointer-events: none;
 	cursor: default;
-	color: grey;
+	color: grey;*/
 }
 
 
