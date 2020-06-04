@@ -120,18 +120,27 @@ input:hover, input:focus{
 }
 
 
+#submit_buttons {
+	display: flex;
+	justify-content: center;
+	margin-top: 12px;
+	margin-left: 25px;
+}
+
+
 input[type = submit] {
+	float: left;
 	font-size: 15px;
 	font-weight: bold;
 	letter-spacing: 1px;
-	padding: 8px 12px;
+	padding: 12px 15px 12px 15px;
 	width: 15%;
 	background: #1a75ff;
 	border: 2px solid #1a75ff;
 	border-radius: 5px;
 	color: white;
-	display: block;
-	margin: 15px auto;
+	display: inline-block;
+	margin: 15px;
 	cursor: pointer;
 }
 

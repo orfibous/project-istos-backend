@@ -45,10 +45,13 @@
 				<legend> LOGIN </legend>
 				<form action = "/action_page.php" method = "get">
 					<%--@declare id="e-mail"--%><%--@declare id="password"--%><label for = "e-mail"> E-mail: </label>
-					<input type = "email" placeholder = "someone@example.com" name = "email"><br>
+					<input type = "email" placeholder = "someone@example.com" name = "last_name"><br>
 					<label for = "password"> Password: </label>
 					<input type = "password" name = "password"><br>
-					<input type = "submit" value = "Login">
+					<div id = "submit_buttons">
+						<input type = "submit" id = "login" value = "Log In" />
+						<input type = "submit" id = "signup" value = "Sign Up" />
+					</div>
 				</form>
 			</fieldset>
 		</div>
