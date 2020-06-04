@@ -43,7 +43,7 @@
 		<div id = "login_form">
 			<fieldset>
 				<legend> LOGIN </legend>
-				<form action = "/action_page.php" method = "get">
+				<form name="form" action="LoginServlet" method="post" onsubmit="return validate()">
 					<%--@declare id="e-mail"--%><%--@declare id="password"--%><label for = "e-mail"> E-mail: </label>
 					<input type = "email" placeholder = "someone@example.com" name = "last_name"><br>
 					<label for = "password"> Password: </label>
