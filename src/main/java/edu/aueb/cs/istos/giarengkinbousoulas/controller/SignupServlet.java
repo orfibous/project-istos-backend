@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class SignupServlet extends HttpServlet{
     public SignupServlet(){}
@@ -22,7 +23,12 @@ public class SignupServlet extends HttpServlet{
 
         SignupDao signupDao = new SignupDao();
 
-        String userSignedUp = signupDao.registerUser(registeredUser);
+        String userSignedUp = null;
+        try {
+            userSignedUp = signupDao.registerUser(registeredUser);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         if(userSignedUp.equals("SUCCESS")) {
             request.getRequestDispatcher("/html/login.jsp").forward(request, response);
         }

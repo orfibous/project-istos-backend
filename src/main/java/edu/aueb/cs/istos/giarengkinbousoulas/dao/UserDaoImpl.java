@@ -24,7 +24,7 @@ public class UserDaoImpl {
             while(results.next()){
                 userID = results.getInt("USER_ID");
                 emailDB = results.getString("USERNAME");
-                passwordDB = results.getString("PASSWORD");
+                passwordDB = results.getString("PASS");
                 if (email.equals(emailDB) && password.equals(passwordDB)){
                     connection.close();
                     user.setID(userID);

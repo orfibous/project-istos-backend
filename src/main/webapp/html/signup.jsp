@@ -45,7 +45,7 @@
 				<legend> SIGN-UP </legend>
 				<form name="form" action="SignupServlet" method="post" onsubmit="return validate()">
 					<%--@declare id="e-mail"--%><%--@declare id="password"--%><label for = "e-mail"> E-mail: </label>
-					<input type = "email" placeholder = "someone@example.com" name = "last_name"><br>
+					<input type = "email" placeholder = "someone@example.com" name = "email"><br>
 					<label for = "password"> Password: </label>
 					<input type = "password" name = "password"><br>
 					<div id = "button_box">
