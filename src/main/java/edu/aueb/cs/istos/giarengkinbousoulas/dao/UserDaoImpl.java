@@ -5,7 +5,7 @@ import edu.aueb.cs.istos.giarengkinbousoulas.utils.DatabaseHandler;
 import java.sql.*;
 
 public class UserDaoImpl {
-    public String authenticateUser(User user) {
+    public String authenticateUser(User user) throws SQLException {
         String email = user.getEmail();
         String password = user.getPassword();
 
@@ -15,15 +15,19 @@ public class UserDaoImpl {
 
         String emailDB = "";
         String passwordDB = "";
+        int userID;
 
         try {
             connection = DatabaseHandler.createConnection();
             statement = connection.createStatement();
-            results = statement.executeQuery("SELECT * FROM accounts");
+            results = statement.executeQuery("SELECT * FROM ISTOS.USERS;");
             while(results.next()){
-                emailDB = results.getString("email");
-                passwordDB = results.getString("password");
+                userID = results.getInt("USER_ID");
+                emailDB = results.getString("USERNAME");
+                passwordDB = results.getString("PASSWORD");
                 if (email.equals(emailDB) && password.equals(passwordDB)){
+                    connection.close();
+                    user.setID(userID);
                     return "SUCCESS";
                 }
             }
@@ -31,6 +35,7 @@ public class UserDaoImpl {
         catch (SQLException SQLE){
             SQLE.printStackTrace();
         }
+        connection.close();
         return "Invalid user credentials";
     }
 }

@@ -1,20 +1,28 @@
 package edu.aueb.cs.istos.giarengkinbousoulas.controller;
 
-import edu.aueb.cs.istos.giarengkinbousoulas.dao.UserDAO;
+import edu.aueb.cs.istos.giarengkinbousoulas.dao.BookmarksDaoImpl;
 import edu.aueb.cs.istos.giarengkinbousoulas.dao.UserDaoImpl;
-import edu.aueb.cs.istos.giarengkinbousoulas.model.User;
+import edu.aueb.cs.istos.giarengkinbousoulas.model.Bookmarks;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.sql.DataSource;
-import java.io.IOException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.awt.print.Book;
+import java.sql.SQLException;
 import java.util.List;
+
 
 @Controller
 public class HomeController {
+
+
+
     @RequestMapping("/")
     public ModelAndView login(ModelAndView model){
         model.setViewName("login");
@@ -44,15 +52,24 @@ public class HomeController {
         return model;
     }
 
-    @Autowired
-    private UserDaoImpl userDAO;
+    @RequestMapping(value = "/getmyBookmarks", method = RequestMethod.POST)
+    public @ResponseBody List<String> add(HttpServletRequest request, HttpServletResponse response, @RequestParam int userID) throws SQLException {
+        BookmarksDaoImpl database = new BookmarksDaoImpl();
+        Bookmarks bookmarks = new Bookmarks();
+        bookmarks.setMyBookmarks(database.fillBookmarksList(userID));
+        System.out.println("Get Bookmarks for " + userID);
+        return bookmarks.getMyBookmarks();
+    }
 
-    /*@RequestMapping(value = "/fetch")
-    public ModelAndView listUser(ModelAndView model) throws IOException {
+//    @RequestMapping("/account")
+//    public ModelAndView account(ModelAndView model){
+//        LoginServlet loginServlet = new LoginServlet();
+//        String name = loginServlet.doPost();
+//        model.setViewName("account");
+//        return model;
+//    }
 
-        List<User> usersList = userDAO.usersList();
-        model.addObject("usersList", usersList);
-        model.setViewName("fetch");
-        return model;
-    }*/
+//    @Autowired
+//    private UserDaoImpl userDAO;
+
 }

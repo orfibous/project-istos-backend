@@ -4,14 +4,17 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DatabaseHandler {
+
     public static Connection createConnection() {
         Connection connection = null;
-        String URL = "jdbc:mysql://localhost:3306/database";
-        String username = "root";
-        String password = "root123";
+//        String URL = "jdbc:mysql://localhost:3306/istos";
+        String URL = "jdbc:h2:~/istos";
+        String username = "";
+        String password = "";
         try {
             try {
-                Class.forName("com.mysql.jdbc.Driver");
+//                Class.forName("com.mysql.cj.jdbc.Driver");
+                Class.forName("org.h2.Driver");
             } catch (ClassNotFoundException CNFE) {
                 CNFE.printStackTrace();
             }

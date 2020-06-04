@@ -98,6 +98,7 @@ $(document).ready(function() {
 				return ;
 			}
 			//else check HTTP request response and print info
+			// noinspection DuplicatedCode,DuplicatedCode,DuplicatedCode
 			if(request.status>= 200 && request.status < 400){
 				const title = document.getElementById('movie_name');
 				title.innerHTML = data.Title;
@@ -215,6 +216,7 @@ $(document).ready(function() {
 		};
 	}
 
+	//index Screen reset default element values
 	function resetDefaultView() {
 		const title = document.getElementById('movie_name');
 		title.innerHTML = "MOVIE NAME";
