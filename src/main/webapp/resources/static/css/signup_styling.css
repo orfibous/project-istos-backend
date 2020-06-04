@@ -5,8 +5,8 @@
 }
 
 body {
-	background-size: cover;
 	background: url('../images/background.jpg') no-repeat fixed center;
+	background-size: cover;
 }
 
 /*------------------------------------------- NAVIGATION BAR --------------------------------------------*/
@@ -33,7 +33,7 @@ body {
 
 /*------------------------------------------- GRID CONTAINER (GENERAL) --------------------------------------------*/
 
-.login_container {
+.grid_container {
 	display: grid;
 	grid-template-columns: minmax(0,1fr);
 	grid-gap: 15px;
@@ -56,7 +56,7 @@ h1 {
 	margin-bottom: 15px;
 	font-size: 40px;
 	animation: glow .9s infinite alternate;
-
+	
 }
 
 h3 {
@@ -65,21 +65,11 @@ h3 {
 	margin: 20px 10px 0 10px;
 }
 
-#signup_link {
-	color: red;
-	text-decoration: none;
-	animation: signup_link_glow .8s infinite alternate;
-}
-
-#signup_link:visited, #signup_link:hover {
-	color: yellow;
-}
-
 
 /*------------------------------------------- 1. CONTACTS --------------------------------------------*/
 
 fieldset {
-	background-color: lightgray;
+	background-color: #99b3ff;
 	border: 2px solid black;
 	width: 40%;
 	margin-left: auto;
@@ -100,7 +90,7 @@ legend {
 label {
 	font-size: 20px;
 	display: inline-block;
-	line-height: 150%;
+    line-height: 150%;
 	width: 15%;
 	margin-bottom: 15px;
 }
@@ -129,26 +119,12 @@ input:hover, input:focus{
 	background-color: lightgreen;
 }
 
-#submit_buttons {
+#button_box {
 	display: flex;
 	justify-content: center;
 	margin-top: 12px;
 	margin-left: 25px;
 }
-
-/*#submit_buttons #login, #submit_buttons #signup {
-	width: 40%;
-	float: left;
-	background: #339cdf;
-	color: white;
-	padding: 12px 15px 12px 15px;
-	font-size: 15px;
-	text-shadow: 0 -1px #278db8;
-	border: 1px solid #339cdf;
-	margin-right: 12px;
-	cursor: pointer;
-}*/
-
 
 input[type = submit] {
 	float: left;
@@ -161,7 +137,7 @@ input[type = submit] {
 	border: 2px solid #1a75ff;
 	border-radius: 5px;
 	color: white;
-	display: inline-block;
+	display: block;
 	margin: 15px;
 	cursor: pointer;
 }
@@ -191,8 +167,20 @@ input:focus {
 	}
 }
 
-@keyframes signup_link_glow {
+@keyframes bulletin {
 	to {
-		filter: drop-shadow(2px 2px 8px white);
+		text-shadow: 5px 3px 12px white;
+	}
+}
+
+@keyframes glow {
+	to {
+		text-shadow: 2px 2px 8px blue;
+	}
+}
+
+@keyframes logo_glow {
+	to {
+		filter: drop-shadow(2px 2px 8px blue);
 	}
 }

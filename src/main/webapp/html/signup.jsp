@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>FilmBusters - Login</title>
+	<title>FilmBusters - Sign Up</title>
 	<link rel="icon" href="${pageContext.request.contextPath}/resources/static/images/favicon.svg" type="image/x-icon">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/static/css/index_login_styling.css"/>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/static/css/signup_styling.css"/>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2"></script>
 	<script> 
 	function validate()
@@ -32,24 +32,24 @@
 			<a class = "selection" href = "${pageContext.request.contextPath}/contact">Contact</a>
 		</div>
 	</header>
-	<div id = "login_container">
+	<div id = "signup_container">
 		<div id = "introductory">
 			<section>
-				<h1> Login </h1>
+				<h1> Sign-Up </h1>
 				<h3> <i>FilmBusters</i> is a website where you can search a movie and get some information regarding it, as well as save them as bookmarks for future movie-nights! </h3>
-				<h3> You must <i style = "color: red;">log-in</i> with your existing account to proceed, otherwise you have to create a new account <a id = "signup_link" href = "${pageContext.request.contextPath}/signup">here</a>!</h3>
+				<h3>But first, it seems you need to <i style = "color: red;">sign-up</i> in order to proceed to the website! <br> It will only take a few seconds to do it! </h3>
 			</section>
 		</div>
-		<div id = "login_form">
+		<div id = "signup_form">
 			<fieldset>
-				<legend> LOGIN </legend>
-				<form name="form" action="LoginServlet" method="post" onsubmit="return validate()">
+				<legend> SIGN-UP </legend>
+				<form name="form" action="SignupServlet" method="post" onsubmit="return validate()">
 					<%--@declare id="e-mail"--%><%--@declare id="password"--%><label for = "e-mail"> E-mail: </label>
-					<input type = "email" placeholder = "someone@example.com" name = "email"><br>
+					<input type = "email" placeholder = "someone@example.com" name = "last_name"><br>
 					<label for = "password"> Password: </label>
 					<input type = "password" name = "password"><br>
-					<div id = "submit_buttons">
-						<input type = "submit" id = "login" value = "Log In" />
+					<div id = "button_box">
+						<input type = "submit" id = "signup" value = "Sign Up" />
 					</div>
 				</form>
 			</fieldset>

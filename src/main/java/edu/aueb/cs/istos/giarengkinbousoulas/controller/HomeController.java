@@ -21,6 +21,12 @@ public class HomeController {
         return model;
     }
 
+    @RequestMapping("/signup")
+    public ModelAndView signup(ModelAndView model){
+        model.setViewName("signup");
+        return model;
+    }
+
     @RequestMapping("/index")
     public ModelAndView home(ModelAndView model){
         model.setViewName("index");
