@@ -1,3 +1,7 @@
+//        Alexandros Giarengkin 3160025
+//        Orfeas Georgios Mposoulas - Raikidis 3160111
+
+
 package edu.aueb.cs.istos.giarengkinbousoulas.controller;
 
 import edu.aueb.cs.istos.giarengkinbousoulas.configuration.Globals;

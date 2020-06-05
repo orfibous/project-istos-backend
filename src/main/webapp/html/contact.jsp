@@ -1,9 +1,6 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: captainlinux
-  Date: 28/5/20
-  Time: 2:50 π.μ.
-  To change this template use File | Settings | File Templates.
+	Alexandros Giarengkin 3160025
+	Orfeas Georgios Mposoulas - Raikidis 3160111
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>

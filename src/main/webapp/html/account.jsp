@@ -1,11 +1,8 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
-  Created by IntelliJ IDEA.
-  User: captainlinux
-  Date: 28/5/20
-  Time: 2:50 π.μ.
-  To change this template use File | Settings | File Templates.
+	Alexandros Giarengkin 3160025
+	Orfeas Georgios Mposoulas - Raikidis 3160111
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
@@ -42,7 +39,7 @@
             <c:forEach var="bookmark" items="${myBookmarks}" varStatus="status">
             <div id="${bookmark.id}" class = "single_bookmark_box">
                 <section class = "bookmark_title">
-                    <h4><span>&#9654; </span> Bookmark <span class = "bookmark_counter"> 1 </span></h4>
+                    <h4><span>&#9654; </span> Bookmark</h4>
                 </section>
                 <section class = "remove_bookmark_box"> <%--   TODO this must make and insert or drop query to the database based on the request data.imdbID     --%>
                     <img src = "${pageContext.request.contextPath}/resources/static/images/remove_bookmark.png" alt = "remove_bookmark" class = "remove_bookmark"/>
@@ -55,9 +52,9 @@
                     <p class = "movie_name_label"> MOVIE_NAME </p>
                     <span id = "year" class = "year"> (YEAR) </span><span> / </span><span id = "genre" class = "genre"> (GENRE) </span>
                     <ul>
-                        <li><b style = "font-size: 18px;"><u>Directed by</u>:</b><i id = "director_name" class = "director_name"> NO DIRECTOR NAME AVAILABLE </i></li>
-                        <li><b style = "font-size: 18px;"><u>Starring</u>:</b> <i id = "actor_names" class = "actor_names"> NO ACTOR NAMES AVAILABLE </i></li>
-                        <li><b style = "font-size: 18px;"><u>Summary</u>:</b><i id = "description" class = "description"> NO SUMMARY AVAILABLE </i></li>
+                        <li><b style = "font-size: 18px;"><u>Directed by</u>: </b><i id = "director_name" class = "director_name"> NO DIRECTOR NAME AVAILABLE </i></li>
+                        <li><b style = "font-size: 18px;"><u>Starring</u>: </b> <i id = "actor_names" class = "actor_names"> NO ACTOR NAMES AVAILABLE </i></li>
+                        <li><b style = "font-size: 18px;"><u>Summary</u>: </b><i id = "description" class = "description"> NO SUMMARY AVAILABLE </i></li>
                     </ul>
                 </section>
             </div>

@@ -4,7 +4,7 @@ $(document).ready(function() {
     var myBookmarks = document.getElementsByClassName("single_bookmark_box");
     for (var i = 0; i < myBookmarks.length; i++) {
         console.log(myBookmarks[i].id);
-        requestMovieDataShort(myBookmarks[i].id, myBookmarks[i], i + 1);
+        requestMovieDataShort(myBookmarks[i].id, myBookmarks[i]);
     }
 
     //Voting
@@ -40,8 +40,6 @@ function requestMovieDataShort(searchText, container, counter) {
 
     //Access data here
     request.onload = function () {
-        //Change Bookmark number
-        container.getElementsByClassName("bookmark_counter")[0].innerHTML= counter;
         //parse JSON
         var data = JSON.parse(this.responseText);
         //check if a movie was found

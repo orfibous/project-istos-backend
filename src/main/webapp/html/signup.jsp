@@ -1,3 +1,7 @@
+<%--
+	Alexandros Giarengkin 3160025
+	Orfeas Georgios Mposoulas - Raikidis 3160111
+--%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
  pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>

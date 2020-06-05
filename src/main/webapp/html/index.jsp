@@ -1,3 +1,7 @@
+<%--
+	Alexandros Giarengkin 3160025
+	Orfeas Georgios Mposoulas - Raikidis 3160111
+--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%--
   Created by IntelliJ IDEA.
