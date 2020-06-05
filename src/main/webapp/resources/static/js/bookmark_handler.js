@@ -2,45 +2,29 @@
 $(document).ready(function() {
     //Get All bookmark IDs
     var myBookmarks = document.getElementsByClassName("single_bookmark_box");
-    for (var i = 0; i< myBookmarks.length; i++){
+    for (var i = 0; i < myBookmarks.length; i++) {
         console.log(myBookmarks[i].id);
-        requestMovieDataShort(myBookmarks[i].id,myBookmarks[i],i+1);
+        requestMovieDataShort(myBookmarks[i].id, myBookmarks[i], i + 1);
     }
 
-    // //Voting
-    // var remove_bookmark_button = document.getElementsByClassName('remove_bookmark');
-    // // function(index) {
-    //     remove_bookmark_button[index].onclick = function () {
-    //
-    //         var movieID = document.getElementsByClassName("single_bookmark_box")[index].id;
-    //         removeBookmark(movieID);
-    //         console.log("Index: ", index);
-    //         $('.single_bookmark_box').eq(index).remove();
-    //         if (bookmark_box.length === 0) {
-    //             var empty_bookmark_list = document.getElementById('no_bookmarks');
-    //             empty_bookmark_list.style.display = "inline";
-    //         }
-    //     }
-    // // }
+    //Voting
+    var remove_bookmark_button = document.getElementsByClassName('remove_bookmark');
+    var bookmark_box = document.getElementsByClassName('single_bookmark_box');
 
+    for (var i = 0; i < remove_bookmark_button.length; i++) {
+        remove_bookmark_button[i].addEventListener('click', remove, false);
+    }
+
+    function remove() {
+        var movieID = this.parentNode.parentNode.id;
+        removeBookmark(movieID);
+        this.parentNode.parentNode.remove();
+        if (bookmark_box.length === 0) {
+            var empty_bookmark_list = document.getElementById('no_bookmarks');
+            empty_bookmark_list.style.display = "inline";
+        }
+    }
 });
-
-    // var bookmark_box = document.getElementsByClassName('single_bookmark_box');
-    // for (var i = 0; i < remove_bookmark_button.length; i++) {
-    //     (function(index) {
-    //         //This is where the bookmark removal will take place
-    //         remove_bookmark_button[index].onclick = function(){
-    //             var movieID = document.getElementsByClassName("single_bookmark_box")[index].id;
-    //             removeBookmark(movieID);
-    //             console.log("Index: ",index);
-    //             $('.single_bookmark_box').eq(index).remove();
-    //             //console.log(bookmark_box.length);
-    //             if(bookmark_box.length === 0){
-    //                 var empty_bookmark_list = document.getElementById('no_bookmarks');
-    //                 empty_bookmark_list.style.display = "inline";
-    //             }
-    //         }
-    //     })(i);
 
 
 //API Request Movie data with long plot
