@@ -1,5 +1,4 @@
 var lastTestResult;
-
 $(document).ready(function() {
 	//Login
 	$("#loginForm").validate({
@@ -30,6 +29,7 @@ $(document).ready(function() {
 			resetDefaultView();
 			requestMovieDataShort(input.value);
 			lastTestResult = input.value;
+			var element = $("#more_info_button").text();
 			if (element === " More" + ' \u25B2 ') {
 				requestMovieDataShort(lastTestResult);
 			}
@@ -43,6 +43,7 @@ $(document).ready(function() {
 		});
 
 	function change(){
+		const element = document.getElementById("search_results");
 		var initialPath = "/project_istos_backend_war_exploded/resources/static/images/";
 		let path = "";
 		if(image.getAttribute('src') === `${initialPath}save_bookmark.png`){
@@ -50,12 +51,15 @@ $(document).ready(function() {
 			image.src = path;
 			image.style.filter = "drop-shadow(2px 2px 8px red)";
 			image.alt = "dislike";
+			addBookmark(element.className);
+
 		}
 		else {
 			path = `${initialPath}save_bookmark.png`;
 			image.src = path;
 			image.style.filter = "drop-shadow(2px 2px 8px darkblue)";
 			image.alt = "like";
+			removeBookmark(element.className);
 		}
 	}
 
@@ -100,6 +104,8 @@ $(document).ready(function() {
 			//else check HTTP request response and print info
 			// noinspection DuplicatedCode,DuplicatedCode,DuplicatedCode
 			if(request.status>= 200 && request.status < 400){
+				const id = document.getElementById("search_results");
+				id.className = data.imdbID;
 				const title = document.getElementById('movie_name');
 				title.innerHTML = data.Title;
 				const year = document.getElementById('year');
@@ -265,4 +271,36 @@ $(document).ready(function() {
 		image.src = "/project_istos_backend_war_exploded/resources/static/images/no_image.jpg";
 	}
 
+	function addBookmark(movieID){
+		$.ajax({
+			type:'Post',
+			url : 'addBookmark',
+			contentType: "application/json",
+			data: JSON.stringify(movieID),
+			dataType: 'json',
+			success : function(movieID) {
+				console.log(movieID+'added bookmark')
+			},
+			error: function () {
+				console.log("Failed to add Bookmark")
+			}
+		});
+	}
+
+	function removeBookmark(movieID){
+
+		$.ajax({
+			type:'Post',
+			url : 'removeBookmark',
+			contentType: "application/json",
+			data: JSON.stringify(movieID),
+			dataType: 'json',
+			success : function(movieID) {
+				console.log(movieID+'removed bookmark')
+			},
+			error: function () {
+				console.log("Failed to remove Bookmark")
+			}
+		});
+	}
 });

@@ -38,9 +38,9 @@
         </div>
         <h3 id = "no_bookmarks"> Your bookmarks' list is empty! </h3>
         <div id = "bookmarks_box">
+            <%-- This Loop prints all the bookmarks of the logged-in user by making a div container for each. Bookmarks are queried from the HomeController via myBookmarks list--%>
             <c:forEach var="bookmark" items="${myBookmarks}" varStatus="status">
             <div id="${bookmark.id}" class = "single_bookmark_box">
-<%--                TODO here it should print all elements of the myBookmarks List--%>
                 <section class = "bookmark_title">
                     <h4><span>&#9654; </span> Bookmark <span class = "bookmark_counter"> 1 </span></h4>
                 </section>
@@ -55,7 +55,7 @@
                     <p class = "movie_name_label"> MOVIE_NAME </p>
                     <span id = "year" class = "year"> (YEAR) </span><span> / </span><span id = "genre" class = "genre"> (GENRE) </span>
                     <ul>
-                        <li><b style = "font-size: 18px;"><u>Directed by</u></b><i id = "director_name" class = "director_name"> NO DIRECTOR NAME AVAILABLE </i></li>
+                        <li><b style = "font-size: 18px;"><u>Directed by</u>:</b><i id = "director_name" class = "director_name"> NO DIRECTOR NAME AVAILABLE </i></li>
                         <li><b style = "font-size: 18px;"><u>Starring</u>:</b> <i id = "actor_names" class = "actor_names"> NO ACTOR NAMES AVAILABLE </i></li>
                         <li><b style = "font-size: 18px;"><u>Summary</u>:</b><i id = "description" class = "description"> NO SUMMARY AVAILABLE </i></li>
                     </ul>

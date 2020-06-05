@@ -29,7 +29,7 @@
 <body>
 <header>
     <div class = "navigation_bar">
-        <a class = "selection" id = "nav_logo" href = "${pageContext.request.contextPath}/"><img src = "${pageContext.request.contextPath}/resources/static/images/favicon.svg" alt = "logo"></a>
+        <a class = "selection" id = "nav_logo" href = "${pageContext.request.contextPath}/index"><img src = "${pageContext.request.contextPath}/resources/static/images/favicon.svg" alt = "logo"></a>
         <a class = "selection" href = "${pageContext.request.contextPath}/account">My Bookmarks</a>
         <a class = "selection" href = "${pageContext.request.contextPath}/contact">Contact</a>
         <div class = "login_container">
@@ -52,12 +52,12 @@
             <input type="text"  placeholder = "Search..." id = "searchBar">
         </section>
     </div>
-    <div id = "search_results">
+    <div id = "search_results" class="search_results">
         <section id = "basic_movie_info">
             <h4 id = "movie_name"> MOVIE NAME </h4>
             <span id = "year"> (YEAR) </span><span> / </span><span id = "genre"> (GENRE) </span>
         </section>
-        <section id = "voting_box"> <%--   TODO this must make and insert or drop query to the database based on the request data.imdbID     --%>
+        <section id = "voting_box">
             <img src = '${pageContext.request.contextPath}/resources/static/images/save_bookmark.png' alt = "like" id = "vote_selection"/>
         </section>
         <section id = "movie_image">

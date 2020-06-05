@@ -29,7 +29,7 @@ public class SignupDao {
                 userID_counter = id_results.getInt("USER_ID");
             }
             else {
-                userID_counter = 0;
+                userID_counter = -1;
             }
             System.out.println(userID_counter);
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM ISTOS.USERS WHERE USERNAME = ?;");
