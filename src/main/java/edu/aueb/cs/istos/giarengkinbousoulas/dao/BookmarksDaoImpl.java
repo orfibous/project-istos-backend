@@ -70,6 +70,27 @@ public class BookmarksDaoImpl {
         return movieID + " Failed to remove from database";
     }
 
+    public String findBookmark(int userID, String movieID) throws SQLException {
+        Bookmarks bookmarks = new Bookmarks();
+        Connection connection = null;
+        Statement statement;
+        ResultSet results;
+
+        try {
+            //Sen Query to database
+            connection = DatabaseHandler.createConnection();
+            //Get all the bookmarks matching the logged-in user's ID
+            statement = connection.createStatement();
+            results = statement.executeQuery("SELECT MOVIE_ID FROM ISTOS.USER_LIKES WHERE USER_ID = ? AND MOVIE_ID = ?");
+
+        }
+        catch (SQLException SQLE){
+            SQLE.printStackTrace();
+        }
+        connection.close();
+        return "Something";
+    }
+
     public String addBookmark(int userID, String movieID) throws SQLException {
         Bookmarks bookmarks = new Bookmarks();
 
