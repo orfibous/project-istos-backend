@@ -12,8 +12,9 @@ import java.util.List;
 
 public class BookmarksDaoImpl {
     //Fill a Bookmarks List from database
+    Bookmarks bookmarks = new Bookmarks();
     public List<Bookmark> fillBookmarksList(int userID) throws SQLException {
-        Bookmarks bookmarks = new Bookmarks();
+        //Bookmarks bookmarks = new Bookmarks();
 
         Connection connection = null;
         PreparedStatement statement;
@@ -71,7 +72,6 @@ public class BookmarksDaoImpl {
     }
 
     public String findBookmark(int userID, String movieID) throws SQLException {
-        Bookmarks bookmarks = new Bookmarks();
         Connection connection = null;
         Statement statement;
         ResultSet results;
@@ -82,13 +82,21 @@ public class BookmarksDaoImpl {
             //Get all the bookmarks matching the logged-in user's ID
             statement = connection.createStatement();
             results = statement.executeQuery("SELECT MOVIE_ID FROM ISTOS.USER_LIKES WHERE USER_ID = ? AND MOVIE_ID = ?");
-
+            if(results.next()){
+                String tempMovieID = results.getString("MOVIE_ID");
+                for (Bookmark bookmark : bookmarks.getMyBookmarks()){
+                    if(tempMovieID.equalsIgnoreCase(bookmark.getId())){
+                        connection.close();
+                        return "Movie found!";
+                    }
+                }
+            }
         }
         catch (SQLException SQLE){
             SQLE.printStackTrace();
         }
         connection.close();
-        return "Something";
+        return "Movie not found!";
     }
 
     public String addBookmark(int userID, String movieID) throws SQLException {
