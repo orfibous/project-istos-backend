@@ -12,9 +12,8 @@ import java.util.List;
 
 public class BookmarksDaoImpl {
     //Fill a Bookmarks List from database
-    Bookmarks bookmarks = new Bookmarks();
     public List<Bookmark> fillBookmarksList(int userID) throws SQLException {
-        //Bookmarks bookmarks = new Bookmarks();
+        Bookmarks bookmarks = new Bookmarks();
 
         Connection connection = null;
         PreparedStatement statement;
@@ -51,9 +50,9 @@ public class BookmarksDaoImpl {
         ResultSet results;
 
         try {
-            //Sen Query to database
+            //Send Query to database
             connection = DatabaseHandler.createConnection();
-            //Get all the bookmarks matching the logged-in user's ID
+            //Remove Bookmark from database
             statement = connection.prepareStatement("DELETE FROM ISTOS.USER_LIKES " + "WHERE USER_ID = ? AND MOVIE_ID = ?");
             statement.setInt(1, userID);
             statement.setString(2, movieID);
@@ -71,34 +70,6 @@ public class BookmarksDaoImpl {
         return movieID + " Failed to remove from database";
     }
 
-    public String findBookmark(int userID, String movieID) throws SQLException {
-        Connection connection = null;
-        Statement statement;
-        ResultSet results;
-
-        try {
-            //Sen Query to database
-            connection = DatabaseHandler.createConnection();
-            //Get all the bookmarks matching the logged-in user's ID
-            statement = connection.createStatement();
-            results = statement.executeQuery("SELECT MOVIE_ID FROM ISTOS.USER_LIKES WHERE USER_ID = ? AND MOVIE_ID = ?");
-            if(results.next()){
-                String tempMovieID = results.getString("MOVIE_ID");
-                for (Bookmark bookmark : bookmarks.getMyBookmarks()){
-                    if(tempMovieID.equalsIgnoreCase(bookmark.getId())){
-                        connection.close();
-                        return "Movie found!";
-                    }
-                }
-            }
-        }
-        catch (SQLException SQLE){
-            SQLE.printStackTrace();
-        }
-        connection.close();
-        return "Movie not found!";
-    }
-
     public String addBookmark(int userID, String movieID) throws SQLException {
         Bookmarks bookmarks = new Bookmarks();
 
@@ -107,9 +78,21 @@ public class BookmarksDaoImpl {
         ResultSet results;
 
         try {
-            //Sen Query to database
+            //Send Query to database
             connection = DatabaseHandler.createConnection();
-            //Get all the bookmarks matching the logged-in user's ID
+            //Check if bookmark exists in database
+            statement = connection.prepareStatement("SELECT MOVIE_ID FROM ISTOS.USER_LIKES WHERE USER_ID = ? AND MOVIE_ID = ?");
+            statement.setInt(1, userID);
+            statement.setString(2, movieID);
+            results = statement.executeQuery();
+            while(results.next()){
+                String tempMovieID = results.getString("MOVIE_ID");
+                if (tempMovieID.equals(movieID)){
+                    connection.close();
+                    return "Bookmark already exists!";
+                }
+            }
+            //Insert Bookmark in Database
             statement = connection.prepareStatement("INSERT INTO ISTOS.USER_LIKES (USER_ID, MOVIE_ID)" + "VALUES (?,?)");
             statement.setInt(1, userID);
             statement.setString(2, movieID);
