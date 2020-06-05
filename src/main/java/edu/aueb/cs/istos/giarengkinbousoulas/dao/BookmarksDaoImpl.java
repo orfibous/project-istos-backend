@@ -5,6 +5,7 @@ import edu.aueb.cs.istos.giarengkinbousoulas.model.User;
 import edu.aueb.cs.istos.giarengkinbousoulas.model.Bookmarks;
 import edu.aueb.cs.istos.giarengkinbousoulas.utils.DatabaseHandler;
 
+import javax.xml.crypto.Data;
 import java.sql.*;
 import java.util.List;
 
@@ -13,17 +14,15 @@ public class BookmarksDaoImpl {
         Bookmarks bookmarks = new Bookmarks();
 
         Connection connection = null;
-        Statement statement = null;
-        ResultSet results = null;
+        Statement statement;
+        ResultSet results;
 
-        String movieID = "";
+        String movieID;
 
         try {
             connection = DatabaseHandler.createConnection();
             statement = connection.createStatement();
-            String sql = String.format("SELECT MOVIE_ID FROM ISTOS.USER_LIKES WHERE USER_ID = %d", bookmarks.getUserID());
-            results = statement.executeQuery(sql);
-            System.out.println(results);
+            results = statement.executeQuery("SELECT MOVIE_ID FROM ISTOS.USER_LIKES WHERE USER_ID = ?");
             while(results.next()){
                 movieID = results.getString("MOVIE_ID");
                 Bookmark bookmark = new Bookmark(movieID);
