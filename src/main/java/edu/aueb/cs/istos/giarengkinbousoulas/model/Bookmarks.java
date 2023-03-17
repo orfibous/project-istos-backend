@@ -7,7 +7,7 @@ public class Bookmarks {
 
     //Class Variables
     private int userID;
-    private List<Bookmark> myBookmarks = new ArrayList<>();
+    private List<Bookmark> myBookmarks = new ArrayList<Bookmark>();
 
     //Constructors
     public Bookmarks(){

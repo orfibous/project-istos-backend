@@ -1,0 +1,16 @@
+create schema IF NOT EXISTS  ISTOS;
+
+create table USERS
+(
+    USER_ID  INTEGER,
+    USERNAME CHARACTER VARYING(50),
+    PASS     CHARACTER VARYING(20)
+);
+
+create table USER_LIKES
+(
+    MOVIE_ID CHARACTER VARYING(50),
+    USER_ID  INTEGER
+);
+
+INSERT INTO USERS (USER_ID, USERNAME, PASS) VALUES (0 ,'somene@gmail.com', '12345');
